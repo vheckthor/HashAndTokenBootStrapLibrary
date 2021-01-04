@@ -1,0 +1,18 @@
+﻿
+
+The Password Hasher classes and interfaces can be used to create 
+Hashed form of the password and passwordsalts that are needed to be stored in the database.
+This class also Implements a method that verifies the hashed passwords and salts to confirm users that are logged In.
+The Hashing Algorithm can be further improved depending on the use case
+
+The token provider class helps generate the Token for a loggedIn session of a User
+It takes the appropriate parameter for token to be generated and then generates a token for the user
+The Token provider also contains a class to validate the token of the user
+(implemented in the authorization filter behind the scene by the Authorization attribute by microsoft)
+
+The IClaim interface and Claime class helps to get the string format of the Currently loggedIn user Unique Identifier that is already Specified
+
+The Extension can be rewritten to fit use case in the StartUp class, but this Extension of the IServiceCollection  is enough for what is needed
+In the Configuration file  "AppSettings:Token" should be added and the Token should be set as required, Alternatively, the Token can be set in the App 
+Secret but the changes should be made in the Extension as required.
+An Instance of the extension method Should be made in the StartUp class.
